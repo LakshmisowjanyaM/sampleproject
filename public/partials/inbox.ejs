@@ -1,0 +1,31 @@
+
+<div class="container" >
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title" style="text-align:center" >Forms</h3>
+                </div>
+                <table class="table table-hover" id="dev-table">
+                    <thead>
+                    <tr>
+                        <th style="text-align:center" >Message
+                        </th>
+                        <th>Moreoptions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="msg in msgarray">
+                        <!--<tr ng-repeat="form in formdata">-->
+                        <td style="text-align:center">{{msg.message}}</td>
+                        <td><button ng-click="delete(msg)">delete</button></td>
+
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+</div>
