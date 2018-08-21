@@ -54,7 +54,7 @@ module.exports.getMessageById = function(req,res){
  Messages.findById(req.query.messageid,function(err,message){
     if(err)
     {
-        console.log("hgjbnj",err.message);
+        // console.log("hgjbnj",err.message);
         return res.status(500).json({
             err:err.message || "Some error occurred while retrieving message"
         })
@@ -62,7 +62,7 @@ module.exports.getMessageById = function(req,res){
     else {
         if(!message)
         {
-            console.log("nb");
+            // console.log("nb");
             return res.status(404).json({
                 status:"message not found with id"+req.params.messageid
             })
