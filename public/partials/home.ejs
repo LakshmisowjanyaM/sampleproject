@@ -2,26 +2,33 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-primary">
-                <!--<div class="panel-heading">-->
-                    <!--<h3 class="panel-title" style="text-align:center" >Forms</h3>-->
-                <!--</div>-->
-                <!--<div class="panel-body">-->
+                <div class="panel-heading">
+                            <h3 class="panel-title" style="text-align:center" >Enter Your Message</h3>
+                        </div>
+                        <div class="panel-body">
+                            <span style="color:green" ng-show="showstatmsg ">{{msg}}</span>
+                            <form name="messageform" novalidate>
 
-                    <textarea ng-model="message"></textarea>
-                <button ng-click="submit()">submit</button>
-
-                    <!--<input type="text" class="form-control" id="dev-table-filter" data-action="filter" data-filters="#dev-table" ng-model="search" placeholder="FormSearch" />-->
-
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                <textarea style="width:70%; height:auto" ng-model="message" class="form-control"
+                                          rows="6" cols="20" id="Description"></textarea>
+                                       <br/>
+                                    </div>
+                                </div>
+                                <div></div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-4 col-sm-10">
+                                        <button style="width:20%;" ng-disabled="messageform.$invalid" ng-click="submit()"
+                                                class="btn btn-primary">
+                                            submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                 </div>
+            </div>
 
             </div>
-        <!--</div>-->
-        <!--<div id="pagi">-->
-            <!--<dir-pagination-controls-->
-                    <!--max-size="5"-->
-                    <!--direction-links="true"-->
-                    <!--boundary-links="true">-->
-            <!--</dir-pagination-controls>-->
-        <!--</div>-->
     </div>
 </div>

@@ -11,10 +11,10 @@ angular.module('myApp').factory('MessageService',
                 deleteMessage: deleteMessage
             });
 
-            function saveMessage(msg){
+            function saveMessage(msg,palindromeflag){
                 var deferred = $q.defer();
                 $http.post('/saveMessage',
-                    {message:msg})
+                    {message:msg,palindrome:palindromeflag})
                 // handle success
                     .success(function (data, status) {
                         if (status === 200 && data.status) {
@@ -67,8 +67,8 @@ angular.module('myApp').factory('MessageService',
                         deferred.resolve(data);
                     })
                     // handle error
-                    .error(function (data) {
-                        deferred.reject();
+                    .error(function (data,status) {
+                        deferred.reject(status);
                     });
 
                 // return promise object
@@ -90,8 +90,8 @@ angular.module('myApp').factory('MessageService',
                         deferred.resolve(data);
                     })
                     // handle error
-                    .error(function (data) {
-                        deferred.reject();
+                    .error(function (data,status) {
+                        deferred.reject(status);
                     });
 
                 // return promise object

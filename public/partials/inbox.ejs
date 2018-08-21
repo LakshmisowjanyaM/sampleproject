@@ -4,21 +4,28 @@
         <div class="col-md-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title" style="text-align:center" >Forms</h3>
+                    <h3 class="panel-title" style="text-align:center" >Messages</h3>
                 </div>
+                <span ng-show="showstatmsg ">{{msg}}</span>
                 <table class="table table-hover" id="dev-table">
                     <thead>
                     <tr>
+                        <th style="text-align:center" >MessageId
+                        </th>
                         <th style="text-align:center" >Message
                         </th>
-                        <th>Moreoptions</th>
+                        <th style="text-align:center">CreatedAt</th>
+                        <th style="text-align:center"> Delete</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr ng-repeat="msg in msgarray">
-                        <!--<tr ng-repeat="form in formdata">-->
+                        <td style="text-align:center">{{msg._id}}</td>
                         <td style="text-align:center">{{msg.message}}</td>
-                        <td><button ng-click="delete(msg)">delete</button></td>
+                        <td style="text-align:center">{{msg.created_at}}</td>
+                        <td style="text-align:center"> <a href ng-click="delete(msg)">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                            </a></td>
 
                     </tr>
                     </tbody>

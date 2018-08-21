@@ -2,24 +2,33 @@ var mongoose =require('mongoose');
 // var AutoIncrement =require('mongoose-sequence')(mongoose);
 
 var messageSchema= new mongoose.Schema({
-    message:String
+    message: {
+        type: String,
+        required: false
+    },
+    palindrome: {
+        type: Boolean,
+        required: false
+    },
+    created_at:{
+        type:Date,
+        default:Date.now
+    }
+
 });
 
 var Messages = module.exports = mongoose.model("Messages", messageSchema);
 
 module.exports.saveMessage =function(req,res){
-    console.log(req.body);
   Messages.create(req.body,function(err){
       if(err)
       {
-          console.log("fhh");
           return res.status(500).json({
               err:"Message can't be saved"
           })
       }
       else
       {
-          console.log("hello");
           return res.status(200).json({
               status:"Message saved"
           })
@@ -42,10 +51,10 @@ module.exports.getAllMessages = function (req, res) {
 };
 
 module.exports.getMessageById = function(req,res){
-    console.log("gfjjf");
  Messages.findById(req.query.messageid,function(err,message){
     if(err)
     {
+        console.log("hgjbnj",err.message);
         return res.status(500).json({
             err:err.message || "Some error occurred while retrieving message"
         })
@@ -53,6 +62,7 @@ module.exports.getMessageById = function(req,res){
     else {
         if(!message)
         {
+            console.log("nb");
             return res.status(404).json({
                 status:"message not found with id"+req.params.messageid
             })

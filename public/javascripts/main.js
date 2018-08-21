@@ -10,7 +10,7 @@ myApp.config(function ($routeProvider) {
             templateUrl: 'partials/inbox.ejs',
             controller: 'inboxController',
         })
-        .when('/mdisplay/:mid', {
+        .when('/mdisplay', {
             templateUrl: 'partials/message.ejs',
             controller: 'mdisplayController'
         })
